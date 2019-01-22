@@ -25,24 +25,29 @@ public class Stack {
         array = new int[this.size];
     }
 
+    boolean isFull(){
+        if(top == size)
+            return true;
+        return false;
+    }
+
+    boolean isEmpty(){
+        if(top == -1)
+            return true;
+        return false;
+    }
+
     void push(int value){
-        if(top < size){
+        if(!isFull()){
             array[++top] = value;
         }
-        else
-            System.out.println("Stack Full !");
     }
 
     int pop(){
-        if(top > -1){
+        if(!isEmpty()){
             array[top] = 0;
             return array[top--];
         }
-        else {
-            System.out.println("Stack Empty !");
-            return -1;
-        }
+        return -1;
     }
-
-
 }
